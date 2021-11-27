@@ -1,6 +1,7 @@
 package com.example.myweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.collection.CircularArray;
 import androidx.loader.content.AsyncTaskLoader;
 
 import android.annotation.SuppressLint;
@@ -24,6 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -68,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class GetURLData extends AsyncTask < String, String, String > {
+        private Object JSONValue;
+        private Object[] weather;
+
         protected void onPreExecute() {
             super.onPreExecute();
             resultat.setText("Ожидайте...");
@@ -119,13 +124,12 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject object = new JSONObject(result);
 
-
-                resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " C");
+                resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
                 resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
                 resultat3.setText("Давление: " + object.getJSONObject("main").getString("pressure") + " гПа");
                 resultat4.setText("Влажность: " + object.getJSONObject("main").getString("humidity") + " %");
-                resultat5.setText("Осадки: " + object.getJSONObject("weather").getJSONObject(String.valueOf(2)).getString("description"));
 
+                resultat5.setText("Погода сейчас: " + object.getJSONArray("weather"));
 
             } catch (JSONException e) {
                 e.printStackTrace();
