@@ -129,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 resultat3.setText("Давление: " + object.getJSONObject("main").getString("pressure") + " гПа");
                 resultat4.setText("Влажность: " + object.getJSONObject("main").getString("humidity") + " %");
 
-                resultat5.setText("Погода сейчас: " + object.getJSONArray("weather"));
+                JSONObject weather = object.getJSONArray("weather").getJSONObject(0);
+                resultat5.setText("Погода сейчас: " + weather.getString("description"));
 
             } catch (JSONException e) {
                 e.printStackTrace();
