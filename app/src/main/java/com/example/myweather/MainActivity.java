@@ -1,9 +1,6 @@
 package com.example.myweather;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.CircularArray;
-import androidx.loader.content.AsyncTaskLoader;
-
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,8 +10,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,12 +20,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
-
 
 public class MainActivity extends AppCompatActivity {
     private EditText user_field;
@@ -73,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void BG(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -84,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn3:
                 mBackground.setBackgroundResource(R.drawable.foto1);
                 break;
+
         }
     }
 
