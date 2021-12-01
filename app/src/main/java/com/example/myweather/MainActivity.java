@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView resultat3;
     private TextView resultat4;
     private TextView resultat5;
+    private RelativeLayout mBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mBackground=(RelativeLayout) findViewById(R.id.background);
 
         user_field = findViewById(R.id.user_field);
         main_btn = findViewById(R.id.main_btn);
@@ -67,6 +71,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void BG(View view) {
+        switch (view.getId()) {
+            case R.id.btn1:
+                mBackground.setBackgroundResource(R.drawable.foto3);
+                break;
+            case R.id.btn2:
+                mBackground.setBackgroundResource(R.drawable.foto2);
+                break;
+            case R.id.btn3:
+                mBackground.setBackgroundResource(R.drawable.foto1);
+                break;
+        }
     }
 
     private class GetURLData extends AsyncTask < String, String, String > {
