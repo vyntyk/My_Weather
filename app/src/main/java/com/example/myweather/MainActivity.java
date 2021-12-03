@@ -135,7 +135,10 @@ public class MainActivity extends AppCompatActivity {
 
                 resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
                 resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
-                resultat3.setText("Давление: " + object.getJSONObject("main").getString("pressure") + " гПа");
+
+                double pressure = object.getJSONObject("main").getDouble("pressure");
+                resultat3.setText("Давление: " +  pressure*0.750062 +" мм.рт.ст");
+
                 resultat4.setText("Влажность: " + object.getJSONObject("main").getString("humidity") + " %");
 
                 JSONObject weather = object.getJSONArray("weather").getJSONObject(0);
