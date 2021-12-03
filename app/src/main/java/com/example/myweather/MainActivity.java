@@ -20,6 +20,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user_field;
@@ -136,8 +137,9 @@ public class MainActivity extends AppCompatActivity {
                 resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
                 resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
 
-                double pressure = object.getJSONObject("main").getDouble("pressure");
-                resultat3.setText("Давление: " +  pressure*0.750062 +" мм.рт.ст");
+                String pressure = new DecimalFormat("#0.00").format(object.getJSONObject("main")
+                        .getDouble("pressure")*0.750062);
+                resultat3.setText("Давление: " +  pressure +" мм.рт.ст");
 
                 resultat4.setText("Влажность: " + object.getJSONObject("main").getString("humidity") + " %");
 
