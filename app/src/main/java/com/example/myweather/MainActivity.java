@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
                 resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
 
+                //давление в мм.рт.ст с точностью до двух знаков
                 String pressure = new DecimalFormat("#0.00").format(object.getJSONObject("main")
                         .getDouble("pressure")*0.750062);
                 resultat3.setText("Давление: " +  pressure +" мм.рт.ст");

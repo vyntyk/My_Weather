@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="53dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="@string/hint_user"
@@ -40,14 +40,15 @@
 
     <Button
         android:id="@+id/main_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/user_field"
         android:layout_marginHorizontal="130dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="31dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/main_btn"
-        android:textColor="@color/black">
+        android:textColor="@color/black"
+        android:textSize="16sp">
 
     </Button>
 
@@ -115,10 +116,13 @@
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:text="Button1"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="20dp"
         android:onClick="BG"
+        android:text="Button1"
+        android:textSize="10sp"
         tools:visibility="visible" />
 
     <Button
@@ -126,11 +130,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toStartOf="@+id/btn3"
         android:layout_toEndOf="@+id/btn1"
-        android:text="Button2"
         android:onClick="BG"
+        android:text="Button2"
+        android:textSize="10sp"
         android:visibility="visible" />
 
     <Button
@@ -140,9 +147,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="50dp"
-        android:text="Button3"
+        android:layout_marginBottom="20dp"
         android:onClick="BG"
+        android:text="Button3"
+        android:textSize="10sp"
         android:visibility="visible" />
 
 </RelativeLayout>
