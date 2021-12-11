@@ -5,7 +5,7 @@
     android:id="@+id/background"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@drawable/foto3"
+    android:background="@drawable/foto4"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -37,10 +37,11 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/main_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#64DD17"
         android:layout_below="@id/user_field"
         android:layout_marginHorizontal="130dp"
         android:layout_marginTop="21dp"
@@ -49,7 +50,7 @@
         android:textColor="@color/black"
         android:textSize="16sp">
 
-    </Button>
+    </com.google.android.material.button.MaterialButton>
 
     <TextView
         android:id="@+id/resultat"
@@ -59,7 +60,7 @@
         android:layout_marginTop="30sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -71,7 +72,7 @@
         android:layout_marginTop="10sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -83,7 +84,7 @@
         android:layout_marginTop="10sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -95,7 +96,7 @@
         android:layout_marginTop="10sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -107,11 +108,12 @@
         android:layout_marginTop="10sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="35dp"
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,11 +122,12 @@
         android:layout_marginStart="14dp"
         android:layout_marginBottom="20dp"
         android:onClick="BG"
-        android:text="Button1"
-        android:textSize="10sp"
+        android:text="ФОН 1"
+        android:textSize="14sp"
         tools:visibility="visible" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="35dp"
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,11 +138,12 @@
         android:layout_toStartOf="@+id/btn3"
         android:layout_toEndOf="@+id/btn1"
         android:onClick="BG"
-        android:text="Button2"
-        android:textSize="10sp"
+        android:text="ФОН 2"
+        android:textSize="14sp"
         android:visibility="visible" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="35dp"
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -148,8 +152,8 @@
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="20dp"
         android:onClick="BG"
-        android:text="Button3"
-        android:textSize="10sp"
+        android:text="ФОН 3"
+        android:textSize="14sp"
         android:visibility="visible" />
 
 </RelativeLayout>
