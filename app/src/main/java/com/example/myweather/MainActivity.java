@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     @SuppressLint("NonConstantResourceId")
     public void BG(View view) {
         switch (view.getId()) {

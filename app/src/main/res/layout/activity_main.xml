@@ -35,7 +35,8 @@
         android:minHeight="48dp"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:importantForAutofill="no" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_btn"
@@ -47,7 +48,7 @@
         android:layout_marginTop="21dp"
         android:backgroundTint="#64DD17"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/main_btn"
+        android:text="@string/input_city"
         android:textColor="@color/black"
         android:textSize="16sp">
 
