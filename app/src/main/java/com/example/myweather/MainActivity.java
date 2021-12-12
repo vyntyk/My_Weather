@@ -1,8 +1,8 @@
 package com.example.myweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,26 +10,15 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user_field;
     private Button main_btn;
-    private TextView resultat;
-    private TextView resultat2;
-    private TextView resultat3;
-    private TextView resultat4;
-    private TextView resultat5;
+    protected TextView resultat;
+    protected TextView resultat2;
+    protected TextView resultat3;
+    protected TextView resultat4;
+    protected TextView resultat5;
     private RelativeLayout mBackground;
 
     @Override
@@ -37,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBackground=(RelativeLayout) findViewById(R.id.background);
+        mBackground = (RelativeLayout) findViewById(R.id.background);
 
         user_field = findViewById(R.id.user_field);
         main_btn = findViewById(R.id.main_btn);
@@ -57,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     String key = "b5bc683aeb3d41156b638602b31704ed";
                     String url = "https://api.openweathermap.org/data/2.5/weather?q="
                             + city + "&appid=" + key + "&units=metric&lang=ru";
-                    new GetURLData().execute(url);
+                    new GetURLData(MainActivity.this).execute(url);
                 }
             }
         });
@@ -76,80 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 mBackground.setBackgroundResource(R.drawable.foto1);
                 break;
 
-        }
-    }
-
-    private class GetURLData extends AsyncTask < String, String, String > {
-        private Object JSONValue;
-        private Object[] weather;
-
-        protected void onPreExecute() {
-            super.onPreExecute();
-            resultat.setText("Ожидайте...");
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            HttpURLConnection connection = null;
-            BufferedReader bufferedReader = null;
-
-            try {
-                URL url = new URL(strings[0]);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-                InputStream stream = connection.getInputStream();
-
-                bufferedReader = new BufferedReader(new InputStreamReader(stream));
-                StringBuffer buffer = new StringBuffer();
-                String line = "";
-                while ((line = bufferedReader.readLine()) != null) {
-                    buffer.append(line).append("\n");
-                }
-                return buffer.toString();
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
-        }
-
-        @SuppressLint("SetTextI18n")
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-
-            try {
-                JSONObject object = new JSONObject(result);
-
-                resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
-                resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
-
-                //давление в мм.рт.ст с точностью до двух знаков
-                String pressure = new DecimalFormat("#0.00").format(object.getJSONObject("main")
-                        .getDouble("pressure")*0.750062);
-                resultat3.setText("Давление: " +  pressure +" мм.рт.ст");
-
-                resultat4.setText("Влажность: " + object.getJSONObject("main").getString("humidity") + " %");
-
-                JSONObject weather = object.getJSONArray("weather").getJSONObject(0);
-                resultat5.setText("Погода сейчас: " + weather.getString("description"));
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
