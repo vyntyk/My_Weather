@@ -3,7 +3,7 @@ package com.example.myweather;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
-import org.json.JSONException;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -69,6 +69,7 @@ class GetURLData extends AsyncTask < String, String, String > {
 
     @SuppressLint("SetTextI18n")
     @Override
+    @Nullable
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
@@ -88,7 +89,7 @@ class GetURLData extends AsyncTask < String, String, String > {
             JSONObject weather = object.getJSONArray("weather").getJSONObject(0);
             mainActivity.resultat5.setText("Погода сейчас: " + weather.getString("description"));
 
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -1,7 +1,5 @@
 package com.example.myweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,10 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user_field;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         main_btn.setOnClickListener(new View.OnClickListener() {
             @Override
+            @Nullable
             public void onClick(View view) {
                 if (user_field.getText().toString().trim().equals(""))
                     Toast.makeText(MainActivity.this, R.string.no_input, Toast.LENGTH_LONG).show();
