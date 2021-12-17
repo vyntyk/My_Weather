@@ -1,11 +1,10 @@
 package com.example.myweather;
 
+import static android.view.Gravity.CENTER;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
-
-import org.jetbrains.annotations.Nullable;
+import android.widget.Toast;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,8 +16,6 @@ import java.text.DecimalFormat;
 
 class GetURLData extends AsyncTask < String, String, String > {
     private final MainActivity mainActivity;
-    private Object JSONValue;
-    private Object[] weather;
 
     public GetURLData(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -27,6 +24,10 @@ class GetURLData extends AsyncTask < String, String, String > {
     protected void onPreExecute() {
         super.onPreExecute();
         mainActivity.resultat.setText("Ожидайте...");
+        mainActivity.resultat2.setText("Ожидайте...");
+        mainActivity.resultat3.setText("Ожидайте...");
+        mainActivity.resultat4.setText("Ожидайте...");
+        mainActivity.resultat5.setText("Ожидайте...");
     }
 
     @Override
@@ -47,7 +48,6 @@ class GetURLData extends AsyncTask < String, String, String > {
                 buffer.append(line).append("\n");
             }
             return buffer.toString();
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -69,14 +69,15 @@ class GetURLData extends AsyncTask < String, String, String > {
 
     @SuppressLint("SetTextI18n")
     @Override
-    @Nullable
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
         try {
             JSONObject object = new JSONObject(result);
 
+            //получение температуры в Цельсиях
             mainActivity.resultat.setText("Температура: " + object.getJSONObject("main").getDouble("temp") + " °C");
+
             mainActivity.resultat2.setText("Скорость ветра: " + object.getJSONObject("wind").getDouble("speed") + " м/с");
 
             //давление в мм.рт.ст с точностью до двух знаков
@@ -90,7 +91,10 @@ class GetURLData extends AsyncTask < String, String, String > {
             mainActivity.resultat5.setText("Погода сейчас: " + weather.getString("description"));
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //Обработка неправильно введеного названия города
+            Toast toast = Toast.makeText(this.mainActivity, R.string.bad_input, Toast.LENGTH_LONG);
+            toast.setGravity(CENTER, 0, 0);
+            toast.show();
         }
     }
 }
