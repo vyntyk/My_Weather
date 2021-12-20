@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">My Weather</string>
-    <string name="logo">Погода в городе</string>
-    <string name="hint_user">Введите город</string>
-    <string name="main_btn">Узнать погоду</string>
-    <string name="no_input">Введите название города</string>
-    <string name="bad_input">Название города введено неправильно</string>
-    <string name="weather">Погода</string>
-    <string name="input_city">Узнать погоду</string>
+    <string name="logo">Weather in city</string>
+    <string name="hint_user">Input city</string>
+    <string name="main_btn">Find out the weather</string>
+    <string name="no_input">Enter the name of the city</string>
+    <string name="bad_input">City name entered incorrectly</string>
+    <string name="weather">Weather</string>
+    <string name="input_city">Find out the weather</string>
 </resources>

@@ -24,10 +24,7 @@ class GetURLData extends AsyncTask < String, String, String > {
     protected void onPreExecute() {
         super.onPreExecute();
         mainActivity.resultat.setText("Ожидайте...");
-        mainActivity.resultat2.setText("Ожидайте...");
-        mainActivity.resultat3.setText("Ожидайте...");
-        mainActivity.resultat4.setText("Ожидайте...");
-        mainActivity.resultat5.setText("Ожидайте...");
+
     }
 
     @Override
