@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user_field;
@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected TextView resultat3;
     protected TextView resultat4;
     protected TextView resultat5;
-    private RelativeLayout mBackground;
+    private ConstraintLayout mBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBackground = (RelativeLayout) findViewById(R.id.background);
+        mBackground = (ConstraintLayout) findViewById(R.id.background);
 
         user_field = findViewById(R.id.user_field);
         Button main_btn = findViewById(R.id.main_btn);

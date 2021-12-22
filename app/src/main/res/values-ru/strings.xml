@@ -8,4 +8,5 @@
     <string name="bad_input">Название города введено неправильно</string>
     <string name="weather">Погода</string>
     <string name="input_city">Узнать погоду</string>
+    <string name="user_field">City</string>
 </resources>

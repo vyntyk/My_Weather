@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Weather</string>
     <string name="logo">Weather in city</string>
+    <string name="user_field">City</string>
     <string name="hint_user">Input city</string>
     <string name="main_btn">Find out the weather</string>
     <string name="no_input">Enter the name of the city</string>
