@@ -11,7 +11,7 @@
         android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round2"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyWeather">
+        android:theme="@style/Theme.My_Weather">
         <activity
             android:name=".MainActivity"
             android:exported="true">
