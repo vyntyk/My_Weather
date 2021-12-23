@@ -32,12 +32,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@id/user_field2"
-        android:layout_width="160dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:hint="Input city"
+        android:hint="Введите название города"
         android:inputType="text"
         android:textAlignment="center"
         app:circularflow_viewCenter="@string/hint_user"
@@ -50,6 +50,7 @@
 
             android:id="@+id/user_field"
             android:layout_width="match_parent"
+            android:textSize="32sp"
             android:layout_height="66dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
