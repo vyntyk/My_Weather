@@ -1,20 +1,24 @@
 package com.example.myweather;
 
 import static android.view.Gravity.CENTER;
+
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DecimalFormat;
 
+@SuppressWarnings("deprecation")
 class GetURLData extends AsyncTask < String, String, String > {
+    @SuppressLint("StaticFieldLeak")
     private final MainActivity mainActivity;
 
     public GetURLData(MainActivity mainActivity) {
@@ -39,14 +43,12 @@ class GetURLData extends AsyncTask < String, String, String > {
             InputStream stream = connection.getInputStream();
 
             bufferedReader = new BufferedReader(new InputStreamReader(stream));
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 buffer.append(line).append("\n");
             }
             return buffer.toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
