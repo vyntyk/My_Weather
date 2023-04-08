@@ -30,16 +30,13 @@ public class MainActivity extends AppCompatActivity {
         resultat4 = findViewById(R.id.resultat4);
         resultat5 = findViewById(R.id.resultat5);
 
-        mBackground = (ConstraintLayout) findViewById(R.id.background);
+        mBackground = findViewById(R.id.background);
 
         user_field = findViewById(R.id.user_field);
         Button main_btn = findViewById(R.id.main_btn);
-        main_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String city = user_field.getText().toString();
-                new WeatherApiService(MainActivity.this).execute(city);
-            }
+        main_btn.setOnClickListener(view -> {
+            String city = user_field.getText().toString();
+            new WeatherApiService(MainActivity.this).execute(city);
         });
     }
 
