@@ -12,11 +12,11 @@ import java.net.URL;
 
 public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
     private static final String API_KEY = "b5bc683aeb3d41156b638602b31704ed";
-    private static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric";
+    private static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
 
-    private MainActivity2 mainActivity;
+    private MainActivity mainActivity;
 
-    public WeatherApiService(MainActivity2 mainActivity) {
+    public WeatherApiService(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
