@@ -1,3 +1,10 @@
+/*
+ * Created by Viktor Belous on 08.04.2023.
+ * Last modified 08.04.2023, 20:21
+ * Copyright (c) 2023.
+ * All rights reserved.
+ */
+
 package com.example.myweather;
 
 import android.os.AsyncTask;
