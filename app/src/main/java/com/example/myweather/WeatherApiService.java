@@ -1,3 +1,10 @@
+/*
+ * Created by Viktor Belous on 08.04.2023.
+ * Last modified 08.04.2023, 20:21
+ * Copyright (c) 2023.
+ * All rights reserved.
+ */
+
 package com.example.myweather;
 
 import android.os.AsyncTask;
@@ -11,9 +18,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
-    private static final String API_KEY = "b5bc683aeb3d41156b638602b31704ed";
-    private static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
-
+    static final String API_KEY = "b5bc683aeb3d41156b638602b31704ed";
+    static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
+    
     private MainActivity mainActivity;
 
     public WeatherApiService(MainActivity mainActivity) {

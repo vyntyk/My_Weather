@@ -11,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView resultat;
-    private TextView resultat2;
-    private TextView resultat3;
-    private TextView resultat4;
-    private TextView resultat5;
+    TextView resultat;
+    TextView resultat2;
+    TextView resultat3;
+    TextView resultat4;
+    TextView resultat5;
     private ConstraintLayout mBackground;
     private EditText user_field;
 
