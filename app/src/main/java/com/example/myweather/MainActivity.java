@@ -1,11 +1,14 @@
 package com.example.myweather;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -32,11 +35,20 @@ public class MainActivity extends AppCompatActivity {
 
         mBackground = findViewById(R.id.background);
 
-        user_field = findViewById(R.id.user_field);
         Button main_btn = findViewById(R.id.main_btn);
+
+        user_field = findViewById(R.id.user_field);
+
         main_btn.setOnClickListener(view -> {
-            String city = user_field.getText().toString();
-            new WeatherApiService(MainActivity.this).execute(city);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+            String city = user_field.getText().toString().trim();
+            if (!city.isEmpty()) {
+                new WeatherApiService(MainActivity.this).execute(city);
+            }else {
+                Toast.makeText(MainActivity.this, "Please enter a city name", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
