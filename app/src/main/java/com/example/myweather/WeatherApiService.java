@@ -55,15 +55,17 @@ public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
     }
 
     @Override
-    protected void onPostExecute(WeatherData result) {
-        super.onPostExecute(result);
-
-        if (result != null) {
-            mainActivity.updateWeatherData(result);
+    protected void onPostExecute(WeatherData weatherData) {
+        if (weatherData == null) {
+            showBadInputToast();
         } else {
-            Toast toast = Toast.makeText(mainActivity, R.string.bad_input, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            mainActivity.updateWeatherData(weatherData);
         }
+    }
+
+    private void showBadInputToast() {
+        Toast toast = Toast.makeText(mainActivity, R.string.bad_input, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }
