@@ -7,6 +7,7 @@
 
 package com.example.myweather;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.view.Gravity;
 import android.widget.Toast;
@@ -21,7 +22,8 @@ public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
     static final String API_KEY = "b5bc683aeb3d41156b638602b31704ed";
     static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
     
-    private MainActivity mainActivity;
+    @SuppressLint("StaticFieldLeak")
+    private final MainActivity mainActivity;
 
     public WeatherApiService(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
