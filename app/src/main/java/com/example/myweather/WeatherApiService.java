@@ -7,6 +7,7 @@
 
 package com.example.myweather;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.view.Gravity;
 import android.widget.Toast;
@@ -21,7 +22,8 @@ public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
     static final String API_KEY = "b5bc683aeb3d41156b638602b31704ed";
     static final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
     
-    private MainActivity mainActivity;
+    @SuppressLint("StaticFieldLeak")
+    private final MainActivity mainActivity;
 
     public WeatherApiService(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -55,15 +57,17 @@ public class WeatherApiService extends AsyncTask <String, Void, WeatherData> {
     }
 
     @Override
-    protected void onPostExecute(WeatherData result) {
-        super.onPostExecute(result);
-
-        if (result != null) {
-            mainActivity.updateWeatherData(result);
+    protected void onPostExecute(WeatherData weatherData) {
+        if (weatherData == null) {
+            showBadInputToast();
         } else {
-            Toast toast = Toast.makeText(mainActivity, R.string.bad_input, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            mainActivity.updateWeatherData(weatherData);
         }
+    }
+
+    private void showBadInputToast() {
+        Toast toast = Toast.makeText(mainActivity, R.string.bad_input, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }
