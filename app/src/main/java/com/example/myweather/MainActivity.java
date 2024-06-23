@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         resultat = findViewById(R.id.resultat);
         resultat2 = findViewById(R.id.resultat2);
         resultat3 = findViewById(R.id.resultat3);
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Button main_btn = findViewById(R.id.main_btn);
 
         user_field = findViewById(R.id.user_field);
-
+ 
         main_btn.setOnClickListener(view -> {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
